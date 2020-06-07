@@ -3,8 +3,8 @@ we get 3, 5, 6 and 9. The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000. 
 (Answer = 233168) */
 
-// this solution is consistently fractionally faster
-// due to lack of expensive modulo operations
+// this version uses inclusion-exclusion principle
+// ~ 9.4ms
 
 function Euler01_b(n)
 {
