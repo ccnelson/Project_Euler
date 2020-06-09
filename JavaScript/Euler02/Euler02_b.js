@@ -7,8 +7,8 @@ values do not exceed four million,
  find the sum of the even-valued terms.
 (Answer = 4613732) */
 
-// uses bitwise AND
-// ~ 9.5ms
+// uses modulo
+// ~ 11ms
 
 function Euler02()
 {
@@ -20,7 +20,7 @@ function Euler02()
   while (n3 < 4000000)
   {
     n3 = n1 + n2;
-    if ((n3 & 1) != 1)
+    if (n3 % 2 == 0)
     {
       answer += n3;
     }
