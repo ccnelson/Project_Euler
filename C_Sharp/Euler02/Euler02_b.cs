@@ -7,15 +7,15 @@ values do not exceed four million,
  find the sum of the even-valued terms.
 (Answer = 4613732) */
 
-// ~ 16 ticks
-// uses bitwise AND to test least significant bit
+// ~ 19 ticks
+// uses modulo
 
 using System;
 using System.Diagnostics;
 
 namespace Euler2name
 {
-    class Euler02
+    class Euler02_b
     {
         static void Main(string[] args)
         {
@@ -30,7 +30,7 @@ namespace Euler2name
             while (n3 < 4000000)
             {
                 n3 = n1 + n2;
-                if ((n3 & 1) != 1) // is even
+                if (n3 % 2 == 0)
                 {
                     total += n3;
                 }

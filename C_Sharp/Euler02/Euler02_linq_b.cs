@@ -7,8 +7,8 @@ values do not exceed four million,
  find the sum of the even-valued terms.
 (Answer = 4613732) */
 
-// ~ 160000 ticks
-// uses LINQ & bitwise AND to test least significant bit
+// ~ 300000 ticks
+// uses LINQ
 // NOTE: csc wont compile due to token errors. used visual studio.
 
 using System;
@@ -38,8 +38,7 @@ namespace Euler02linqname
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
 
-            int evenSum = Fibonacci().TakeWhile(x => x < 4000000L).Where(y => (y & 1) != 1).Sum();
-
+            int evenSum = Fibonacci().TakeWhile(x => x < 4000000L).Where(y => y % 2 == 0).Sum();
 
             watch.Stop();
             Console.WriteLine("Answer: {0}", evenSum);
