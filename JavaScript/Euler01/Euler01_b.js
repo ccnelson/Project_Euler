@@ -6,7 +6,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 // this version uses conditional logical OR operator with modulo operation
 // ~ 9.9ms
 
-function Euler01(n)
+function Euler01_b(n)
 {
   let total = 0;
 
@@ -21,8 +21,8 @@ function Euler01(n)
   console.log(total);
 }
 
-console.time('Euler01');
-Euler01(1000);
-console.timeEnd('Euler01');
+console.time('Euler01_b');
+Euler01_b(1000);
+console.timeEnd('Euler01_b');
 
 
