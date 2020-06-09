@@ -7,8 +7,8 @@ values do not exceed four million,
  find the sum of the even-valued terms.
 (Answer = 4613732) */
 
-// uses bitwise AND to test least significant bit
-// ~ 1900 nanoseconds
+// uses modulo
+// ~ 2500 nanoseconds
 
 package euler02;
 /**
@@ -32,12 +32,12 @@ public class Euler02
         while (n3 < 4000000)
         {
             n3 = n1 + n2;
-            if ((n3 & 1) != 1) // is even
+            n1 = n2;
+            n2 = n3;
+            if (n3 % 2 == 0)
             {
                 answer += n3;
             }
-            n1 = n2;
-            n2 = n3;
         }
         
         // stop timer
