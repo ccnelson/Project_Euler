@@ -6,7 +6,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 // this version uses inclusion-exclusion principle
 // ~ 9.4ms
 
-function Euler01_b(n)
+function Euler01(n)
 {
   let total3s = 0;
   let total5s = 0;
@@ -30,8 +30,8 @@ function Euler01_b(n)
   console.log(answer);
 }
 
-console.time('Euler01_b');
-Euler01_b(1000);
-console.timeEnd('Euler01_b');
+console.time('Euler01');
+Euler01(1000);
+console.timeEnd('Euler01');
 
 
