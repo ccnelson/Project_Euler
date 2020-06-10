@@ -10,7 +10,6 @@ function Euler03()
   let n = 600851475143;
   let factor = 3;
   let maxfactor = Math.sqrt(n);
-  let answer = 0;
 
   while (n > 1 && factor <= maxfactor)
   {
