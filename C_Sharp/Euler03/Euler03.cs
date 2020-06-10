@@ -17,7 +17,6 @@ namespace Euler03name
             watch.Start();
 
             long n = 600851475143;
-            int lastfactor = 0;
             int factor = 3; // n isnt even
             double maxfactor = Math.Sqrt(n); 
             long answer = 0; 
@@ -27,7 +26,6 @@ namespace Euler03name
                 if (n % factor == 0)  // if factor
                 {
                     n = n / factor;  // divide it
-                    lastfactor = factor;  // record it
                     while (n % factor == 0) { n = n / factor; } // keep dividing
                     maxfactor = Math.Sqrt(n); // update boundary
                 }
