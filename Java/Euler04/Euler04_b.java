@@ -5,24 +5,23 @@ Find the largest palindrome made from the product
 of two 3-digit numbers. 
 (Answer = 906609) */
 
-// Uses math method to reverse positive integers
-// ~ 1,200,000 nanoseconds
+// Use stringbuilder to reverse string
+// ~ 14,000,000 nanoseconds
 
 /**
  * @author ccnelson 2020
  */
-public class Euler04 
+public class Euler04_b
 {
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
         long startTime;
         long endTime;
         long duration;
         // start timer
-        startTime = System.nanoTime();  
+        startTime = System.nanoTime(); 
 
         int temp = 0;
-        int temp2 = 0;
         int answer = 0;
         int val1 = 0;
         int val2 = 0;
@@ -32,8 +31,7 @@ public class Euler04
             for (int j = 1000; j > 900; j--)
             {
                 temp = i * j;
-                temp2 = Revnum(temp);
-                if (temp == temp2 && temp > answer)
+                if (Revnumstring(temp) == temp && temp > answer)
                 {
                     answer = temp;
                     val1 = i;
@@ -41,8 +39,7 @@ public class Euler04
                 }
             }
         }
-        
-        // stop timer
+
         endTime = System.nanoTime();
         duration = (endTime - startTime);
         
@@ -50,18 +47,13 @@ public class Euler04
         System.out.println(" (by multiplying " + val1 + " & " + val2 + ")");
         System.out.println("Took " + duration + " nanoseconds");
     }
-    
-    // reverse number - positive integers only
-    public static int Revnum(int n)
+
+    public static int Revnumstring(int n)
     {
-        int reverse = 0;
-        int endDigit = 0;
-        while (n > 0)
-        {
-            endDigit = n % 10;
-            reverse = (reverse * 10) + endDigit;
-            n = n / 10;
-        }
-        return reverse;
+        StringBuilder stringBuild = new StringBuilder();
+        stringBuild.append(Integer.toString(n));
+        String revString = stringBuild.reverse().toString();
+        int output = Integer.valueOf(revString);
+        return output;
     }
 }
