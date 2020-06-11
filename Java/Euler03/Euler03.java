@@ -3,9 +3,8 @@ What is the largest prime factor of the number 600851475143
 (Answer = 6857) */
 
 // Divide out all factors until left with highest prime factor
-// ~ 40000 nanoseconds
+// ~ 41000 nanoseconds
 
-package euler03;
 /**
  * @author ccnelson 2020
  */
