@@ -8,9 +8,8 @@ values do not exceed four million,
 (Answer = 4613732) */
 
 // uses bitwise AND to test least significant bit
-// ~ 1900 nanoseconds
+// ~ 2000 nanoseconds
 
-package euler02;
 /**
  * @author ccnelson 2020
  */
