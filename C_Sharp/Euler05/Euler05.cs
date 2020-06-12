@@ -3,8 +3,9 @@ each of the numbers from 1 to 10 without any remainder.
 what is the smallest positive number that is evenly 
 divisible by all of the numbers from 1 to 20?
 (Answer: 232792560) */
-// this version uses multiplication of prime factors to find LCM
-// > 70,000 ticks
+
+// uses multiplication of prime factors to find LCM
+// ~ 9,000 ticks
 
 using System;
 using System.Collections.Generic;
@@ -14,98 +15,93 @@ namespace Euler05name
 {
     class Euler05
     {
-        static Boolean primefunc(int inputNo)
+        static Boolean IsPrime(int n)
         {
-            if (inputNo <= 1) return false; // 1 isnt prime
-            if (inputNo == 2) return true; // 2 is prime
-            if (inputNo % 2 == 0) return false; // evens arent prime
-            var boundary = (int)Math.Floor(Math.Sqrt(inputNo)); // set boundary
-            for (int i = 3; i <= boundary; i += 2) // increment thru odds
+            if (n <= 1) return false;
+            if (n == 2) return true;
+            if ((n & 1) != 1) return false; // bitwise
+            int boundary = (int)Math.Floor(Math.Sqrt(n));
+            for (int i = 3; i <= boundary; i += 2)
             {
-                if (inputNo % i == 0) return false;
+                if (n % i == 0) return false;
             }
             return true;
         }
 
-
-        class Nmbr
+        // return list of prime factors of n, from list of primes supplied
+        static List<int> PrimeFactors(int n, List<int> primeList)
         {
-            public int targ; // number in question
-            public List<long> pflist = new List<long>(); // list for prime factors
-            public SortedSet<long> pset = new SortedSet<long>(); // set for unique prime factors
-
-            public Nmbr(int targ) // constructor
+            int primeIndex = 0; // track which prime
+            List<int> factorList = new List<int>(); // list to store factors
+            while (n > 1)
             {
-                this.targ = targ; // supplied target
-                this.pflist = primefactors(); // populate list via method
-            }
-
-            public List<long> primefactors()
-            {
-                for (int i = 1; i < targ; i++)
+                if ( n % primeList[primeIndex] == 0 ) // if number divides evenly into prime
                 {
-                    if (targ % i == 0 & primefunc(i) == true) // check if prime factor
-                    {
-                        pflist.Add(i); // add to list
-                        targ = targ / i;
-                        i = 1; // reset as we just divided
-                    }
-                    if (primefunc(targ) == true) // check if target yet prime
-                    {
-                        pflist.Add(targ); // add to list
-                        break; // reached end
-                    }
+                    factorList.Add(primeList[primeIndex]); // add prime to list
+                    n = n / primeList[primeIndex]; // divide and continue
                 }
-                foreach (var f in pflist) { this.pset.Add(f); }; // have to wait till list is full before making a set
-                return pflist; // return list
+                else { primeIndex += 1; } // if doesnt divide evenly increment prime being used
             }
+            return factorList;
         }
+        
 
         static void Main()
         {
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
-            SortedSet<long> mainpset = new SortedSet<long>(); // main set of primes
-            List<int> occlist = new List<int>();  // list of occurences - cross references mainpset
-            List<Nmbr> coordlist = new List<Nmbr>();  // list for class instances
-            for (int i = 1; i < 21; i++)
+            int limit = 20; // set limit
+            
+            List<int> primes = new List<int>();  // create list of primes within limit
+            for (int i = 0; i <= limit; i++)
             {
-                coordlist.Add(new Nmbr(i)); // add instances with target from 1 to 20
+                if (IsPrime(i)) { primes.Add(i); }
             }
-            foreach (var c in coordlist) { foreach (var d in c.pset) { mainpset.Add(d); } }; // populate main set
-            int counter = 0; // counter for occurences
-            int highcount = 0; // track highest occurences
-            foreach (var p in mainpset) // set of primes
+            
+            // list of lists stores prime factors corresponding to index numbers
+            List<List<int>> primeFactorList = new List<List<int>>();
+            for (int i = 0; i <= limit; i++)
             {
-                highcount = 0; // reset counter
-                foreach (var c in coordlist) // list of instances
+                primeFactorList.Add(PrimeFactors(i, primes));  // fill with primefactors
+            }
+            
+            // list to count maximum times a factor appears
+            List<int> primesForAdding = new List<int>();
+            for (int i = 0; i <= limit; i++)
+            {
+                if (IsPrime(i))
                 {
-                    counter = 0;  // reset the counter at start of each instance
-                    foreach (var n in c.pflist) // each instances list of prime factors
+                    int pcounter = 0; // overall counter
+                    foreach (List<int> subList in primeFactorList)
                     {
-                        if (n == p) // is this the prime we are looking for
+                        int lpcounter = 0; // local counter
+                        foreach (int item in subList)
                         {
-                            counter += 1;
-                            if (counter > highcount)
-                            {
-                                highcount = counter;
-                            }
+                            if (item == i) { lpcounter += 1; } // look for number in question
                         }
-                    };
-                };
-                occlist.Add(highcount);  // track highest number of occurences
-            };
-            int newcount = 0; // track position in occurence list
-            double total = 1; // total so far (product needs to start as 1)
-            long z = 0;
-            foreach (var x in mainpset)
+                        // if local count is greater than overall, update overall
+                        if (lpcounter > pcounter) { pcounter = lpcounter;} 
+                    }
+                    primesForAdding.Add(pcounter); // add to list, corresponding to index
+                }
+                else { primesForAdding.Add(0); } // use zeroes to signify an index can be ignored
+            }
+            
+            int answer = 1; // start with 1.. starting with zero would ouput 0
+            for (int i = 0; i < primesForAdding.Count; i++) // iterate through total appearances of primes
             {
-                total *= Math.Pow(x, occlist[newcount]); // multiply by our number raised to the power of occurences (pow returns a double)
-                newcount += 1; // increment occuence count
-            };
-            Console.WriteLine("\nAnswer: {0}", total);
+                if (primesForAdding[i] > 0) // for numbers with more than no appearances
+                {
+                    for (int j = 1; j <= primesForAdding[i]; j++) // multiply answer corresponding number of times
+                    {
+                        answer *= i;
+                    }
+                }
+            }
+            
             watch.Stop();
-            Console.WriteLine("\nTook: {0} ticks", watch.ElapsedTicks);
+            Console.WriteLine("\nAnswer: {0}", answer);
+            Console.WriteLine("Took: {0} ticks", watch.ElapsedTicks);
             Console.WriteLine("Took: {0} ms", watch.ElapsedMilliseconds);
         }
     }
