@@ -5,7 +5,7 @@
 # (Answer: 232792560)
 
 #  uses multiplication of prime factors to find LCM
-#  ~ 1,250,000 nanoseconds
+#  ~ 1,200,000 nanoseconds
 
 from math import sqrt, floor
 import time
