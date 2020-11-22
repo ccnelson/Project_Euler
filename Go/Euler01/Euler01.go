@@ -12,7 +12,7 @@ import "time"
 
 func main() {
 
-    var sumofthrees int = 0
+	var sumofthrees int = 0
 	var sumoffives int = 0
 	var sumoffifteens int = 0
 	var finalanswer int = 0
@@ -20,18 +20,18 @@ func main() {
 	start := time.Now()
 
 	for x := 3; x < 1000; x+=3 {
-        sumofthrees += x
-    }
+		sumofthrees += x
+	}
 	for x := 5; x < 1000; x+=5 {
-        sumoffives += x
-    }
+		sumoffives += x
+	}
 	for x := 15; x < 1000; x+=15 {
-        sumoffifteens += x
-    }
-    finalanswer = (sumofthrees + sumoffives) - sumoffifteens
+		sumoffifteens += x
+	}
+	finalanswer = (sumofthrees + sumoffives) - sumoffifteens
 
-    elapsed := time.Since(start)
+	elapsed := time.Since(start)
 
-    fmt.Println("Answer:\t", finalanswer)
-    fmt.Println("Took:\t", elapsed)
+	fmt.Println("Answer:\t", finalanswer)
+	fmt.Println("Took:\t", elapsed)
 }
