@@ -6,14 +6,14 @@ fn main()
 {
     let finalanswer;
 
-	use std::time::Instant;
+    use std::time::Instant;
     let tic = Instant::now();
 
 
 
 
 
-	finalanswer = 0;
+    finalanswer = 0;
 
     let duration = tic.elapsed();
 
