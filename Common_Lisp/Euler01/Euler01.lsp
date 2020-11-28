@@ -15,9 +15,6 @@
 	(loop for j from 5 to 999 do (incf *sumoffives* j)(incf j 4))
 	(loop for k from 15 to 999 do (incf *sumoffifteens* k)(incf k 14))
 
-	;(setf temp(+ sumofthrees sumoffives))
-	;(setf finalanswer(- temp sumoffifteens))
-
 	(setf *finalanswer*(- (+ *sumofthrees* *sumoffives*) *sumoffifteens*))
 )
 
