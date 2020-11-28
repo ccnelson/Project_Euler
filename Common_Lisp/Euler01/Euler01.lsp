@@ -5,19 +5,22 @@
 
 ; solution uses inclusion-exclusion principle
 
-(defvar sumofthrees 0)
-(defvar sumoffives 0)
-(defvar sumoffifteens 0)
-(defvar finalanswer 0)
+(defparameter *sumofthrees* 0)
+(defparameter *sumoffives* 0)
+(defparameter *sumoffifteens* 0)
+(defparameter *finalanswer* 0)
 
 (defun Euler01()
-	(loop for i from 3 to 999 do (incf sumofthrees i)(incf i 2))
-	(loop for j from 5 to 999 do (incf sumoffives j)(incf j 4))
-	(loop for k from 15 to 999 do (incf sumoffifteens k)(incf k 14))
-	(setf temp(+ sumofthrees sumoffives))
-	(setf finalanswer(- temp sumoffifteens))
+	(loop for i from 3 to 999 do (incf *sumofthrees* i)(incf i 2))
+	(loop for j from 5 to 999 do (incf *sumoffives* j)(incf j 4))
+	(loop for k from 15 to 999 do (incf *sumoffifteens* k)(incf k 14))
+
+	;(setf temp(+ sumofthrees sumoffives))
+	;(setf finalanswer(- temp sumoffifteens))
+
+	(setf *finalanswer*(- (+ *sumofthrees* *sumoffives*) *sumoffifteens*))
 )
 
 (time(Euler01))
 
-(format t "Answer:	~A" finalanswer)
+(format t "Answer:	~A" *finalanswer*)
