@@ -11,7 +11,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 int main()
 {
-    int sumOfThrees = 0;
+	int sumOfThrees = 0;
 	int sumOfFives = 0;
 	int sumOfFifteens = 0;
 	int finalAnswer = 0;
@@ -41,5 +41,5 @@ int main()
 	printf("Answer:\t %ld\n", finalAnswer);
 	printf("Took:\t %.20f\n", timeElapsed);
 	
-    return 0;
+	return 0;
 }
