@@ -42,5 +42,5 @@ int main()
 	printf("Answer:\t %ld\n", finalAnswer);
 	printf("Took:\t %.20f\n", timeElapsed);
 
-    return 0;
+	return 0;
 }
