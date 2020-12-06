@@ -36,7 +36,7 @@ namespace Euler01name
                 sumOfFifteens += k;
             }
             finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens;
-            
+
             watch.Stop();
 
             Console.WriteLine("Answer:\t{0}", finalAnswer);
