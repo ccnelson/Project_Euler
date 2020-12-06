@@ -11,10 +11,10 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 int main()
 {
-    long sumOfThrees = 0;
-	long sumOfFives = 0;
-	long sumOfFifteens = 0;
-	long finalAnswer = 0;
+    int sumOfThrees = 0;
+	int sumOfFives = 0;
+	int sumOfFifteens = 0;
+	int finalAnswer = 0;
 	
 	clock_t tic, toc;
 	double timeElapsed;
