@@ -11,27 +11,27 @@ using System.Diagnostics;
 
 namespace Euler01bname 
 {
-	class Euler01_b
-	{
-		static void Main() 
-		{
-			var watch = new System.Diagnostics.Stopwatch();
-			watch.Start();
+    class Euler01_b
+    {
+        static void Main() 
+        {
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
 
-			int finalAnswer = 0;
-			for (int i = 1; i < 1000; i++)
-			{
-				if ((i % 3 == 0) || (i % 5 == 0))
-				{
-					finalAnswer += i;
-				}
-			}
+            int finalAnswer = 0;
+            for (int i = 1; i < 1000; i++)
+            {
+                if ((i % 3 == 0) || (i % 5 == 0))
+                {
+                    finalAnswer += i;
+                }
+            }
 
-			watch.Stop();
+            watch.Stop();
 
-			Console.WriteLine("Answer:\t{0}", finalAnswer);
-			Console.WriteLine("Took:\t{0} ticks", watch.ElapsedTicks);
-			Console.WriteLine("took:\t{0} ms", watch.ElapsedMilliseconds);
-		}
-	}
+            Console.WriteLine("Answer:\t{0}", finalAnswer);
+            Console.WriteLine("Took:\t{0} ticks", watch.ElapsedTicks);
+            Console.WriteLine("took:\t{0} ms", watch.ElapsedMilliseconds);
+        }
+    }
 }
