@@ -15,34 +15,34 @@ using System.Diagnostics;
 
 namespace Euler02name
 {
-	class Euler02
-	{
-		static void Main(string[] args)
-		{
-			int n1 = 1;
-			int n2 = 0;
-			int n3 = 0;
-			int finalAnswer = 0;
+    class Euler02
+    {
+        static void Main(string[] args)
+        {
+            int n1 = 1;
+            int n2 = 0;
+            int n3 = 0;
+            int finalAnswer = 0;
 
-			var watch = new System.Diagnostics.Stopwatch();
-			watch.Start();
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
 
-			while (n3 < 4000000)
-			{
-				n3 = n1 + n2;
-				if ((n3 & 1) != 1) // is even
-				{
-					finalAnswer += n3;
-				}
-				n1 = n2;
-				n2 = n3;
-			}
+            while (n3 < 4000000)
+            {
+                n3 = n1 + n2;
+                if ((n3 & 1) != 1) // is even
+                {
+                    finalAnswer += n3;
+                }
+                n1 = n2;
+                n2 = n3;
+            }
 
-			watch.Stop();
-			
-			Console.WriteLine("Answer:\t{0}", finalAnswer);
-			Console.WriteLine("Took:\t{0} ticks", watch.ElapsedTicks);
-			Console.WriteLine("Took:\t{0} ms", watch.ElapsedMilliseconds);
-		}
-	}
+            watch.Stop();
+            
+            Console.WriteLine("Answer:\t{0}", finalAnswer);
+            Console.WriteLine("Took:\t{0} ticks", watch.ElapsedTicks);
+            Console.WriteLine("Took:\t{0} ms", watch.ElapsedMilliseconds);
+        }
+    }
 }
