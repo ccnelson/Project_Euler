@@ -7,8 +7,6 @@
       * values do not exceed four million,
       * find the sum of the even-valued terms.
       * (Answer = 4613732)
-      *
-      * solution uses bitwise AND to test least significant bit
 
        IDENTIFICATION DIVISION.
        PROGRAM-ID. Euler02.
