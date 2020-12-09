@@ -2,13 +2,17 @@
 
 
 Problem 01:
-Utilisation of inclusion-exclusion principle allows us to avoid looping through and testing every value at least once (and often twice). If we test every value from 1 to 999, 999/3 of those will require a single test (using a conditional logical OR operator), with the reainder requiring two: 
-333 + ( 666 * 2 ) = 1665 division / modulo operations performed. The chosen solution requires 0 division / modulo operations (which are computationally expensive) - and instead performs: 
+Utilisation of inclusion-exclusion principle allows us to avoid looping through and testing every value at least once (and often twice).
+If we test every value from 1 to 999, 999/3 of those will require a single test (using a conditional logical OR operator), 
+with the reainder requiring two: 
+333 + ( 666 * 2 ) = 1665 division / modulo operations performed. 
+The chosen solution requires 0 division / modulo operations (which are computationally expensive) - and instead performs: 
 ( 999 / 3 ) + ( 999 / 5 ) + ( 999 / 15 ) + ( 2 ) addition and subtration operations. 
 333 + 199 + 66 + 2 = 600.
 
 Problem 02:
-An obvious choice for Fibonacci sequence generation is recursion. However, this becomes inneficient as numbers grow exponentially and recursion levels grow deeper.
+An obvious choice for Fibonacci sequence generation is recursion. 
+However, this becomes inneficient as numbers grow exponentially and recursion levels grow deeper.
 Instead a simple itertive loop proves more effective.
 Again, as modulo is computationally expensive, an alternative is sought.
 Most languages allow for bitwise AND tests, which examine a values least significant bit to determine its parity.
