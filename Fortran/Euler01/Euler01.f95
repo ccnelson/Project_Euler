@@ -8,10 +8,10 @@
 
 program Euler01
 
-    real :: sumOfThrees = 0
-    real :: sumOfFives = 0
-    real :: sumOfFifteens = 0
-    real :: finalAnswer = 0
+    integer :: sumOfThrees = 0
+    integer :: sumOfFives = 0
+    integer :: sumOfFifteens = 0
+    integer :: finalAnswer = 0
 
     real :: tic, toc
     call cpu_time(tic)
@@ -35,7 +35,7 @@ program Euler01
 
     call cpu_time(toc)
 
-    print *, "Answer:   ", finalAnswer
+    print *, "Answer:", finalAnswer
     print *, "Took:     ", toc - tic, "seconds"
 
 end program Euler01
