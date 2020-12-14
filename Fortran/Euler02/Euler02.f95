@@ -15,7 +15,7 @@ program Euler02
     integer :: n1 = 1
     integer :: n2 = 0
     integer :: n3 = 0
-    integer :: finalAnswer=0
+    integer :: finalAnswer = 0
 
     real :: tic, toc
     call cpu_time(tic)
