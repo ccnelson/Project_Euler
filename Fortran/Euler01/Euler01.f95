@@ -7,34 +7,34 @@
 
 program Euler01
 
-    real :: sumofthrees=0
-    real :: sumoffives=0
-    real :: sumoffifteens=0
-    real :: finalanswer=0
+    real :: sumOfThrees = 0
+    real :: sumOfFives = 0
+    real :: sumOfFifteens = 0
+    real :: finalAnswer = 0
 
     real :: tic, toc
     call cpu_time(tic)
 
     do i=3, 999, 3
-        sumofthrees = sumofthrees + i
+        sumOfThrees = sumOfThrees + i
     cycle    
     enddo
 
     do j=5, 999, 5
-        sumoffives = sumoffives + j
+        sumOfFives = sumOfFives + j
     cycle    
     enddo
 
     do k=15, 999, 15
-        sumoffifteens = sumoffifteens + k
+        sumOfFifteens = sumOfFifteens + k
     cycle    
     enddo
     
-    finalanswer = (sumofthrees + sumoffives) - sumoffifteens
+    finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens
 
     call cpu_time(toc)
 
-    print *, "Answer:   ", finalanswer
+    print *, "Answer:   ", finalAnswer
     print *, "Took:     ", toc - tic, "seconds"
 
 end program Euler01
