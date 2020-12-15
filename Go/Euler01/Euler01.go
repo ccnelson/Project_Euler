@@ -34,5 +34,5 @@ func main() {
     timeElapsed := time.Since(tic)
 
     fmt.Println("Answer:\t", finalAnswer)
-    fmt.Println("Took:\t", timeElapsed.Nanoseconds(), "μs")
+    fmt.Println("Took:\t", timeElapsed.Nanoseconds(), "ns")
 }
