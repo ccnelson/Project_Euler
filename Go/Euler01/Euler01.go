@@ -18,7 +18,7 @@ func main() {
     var sumOfFifteens int = 0
     var finalAnswer int = 0
 
-    start := time.Now()
+    tic := time.Now()
 
     for i := 3; i < 1000; i += 3 {
         sumOfThrees += i
@@ -31,8 +31,8 @@ func main() {
     }
     finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens
 
-    elapsed := time.Since(start)
+    timeElapsed := time.Since(tic)
 
     fmt.Println("Answer:\t", finalAnswer)
-    fmt.Println("Took:\t", elapsed)
+    fmt.Println("Took:\t", timeElapsed.Nanoseconds(), "μs")
 }
