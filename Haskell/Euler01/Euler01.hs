@@ -6,14 +6,12 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 -- solution uses inclusion-exclusion principle
 
--- list comprehensions:
-sumOfThrees = sum [(i) *3 | i <- [1..div 999 3]]
-sumOfFives = sum [(j) *5 | j <- [1..div 999 5]]
-sumOfFifteens = sum [(k) *15 | k <- [1..div 999 15]]
-
-finalAnswer = (sumOfThrees + sumOfFives ) - sumOfFifteens
-
 main = do
+    -- list comprehensions:
+    let sumOfThrees = sum [(i) *3 | i <- [1..div 999 3]]
+    let sumOfFives = sum [(j) *5 | j <- [1..div 999 5]]
+    let sumOfFifteens = sum [(k) *15 | k <- [1..div 999 15]]
+    let finalAnswer = (sumOfThrees + sumOfFives ) - sumOfFifteens
     putStr "Answer:\t"
     print finalAnswer
 
