@@ -16,9 +16,9 @@ public class Euler02_b
     {
 
         int n1 = 1;
-        int n2 = 2;
+        int n2 = 0;
         int n3 = 0;
-        int finalAnswer = 2;
+        int finalAnswer = 0;
 
         long tic = System.nanoTime();
                 
