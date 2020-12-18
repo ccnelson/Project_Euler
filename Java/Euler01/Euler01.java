@@ -1,28 +1,22 @@
+// C NELSON 2020
 /* If we list all the natural numbers below 10 that are multiples of 3 or 5, 
 we get 3, 5, 6 and 9. The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000. 
 (Answer = 233168) */
 
-// this version uses inclusion-exclusion principle
-// ~ 9700 nanoseconds
+// solution uses inclusion-exclusion principle
 
-/**
- * @author ccnelson 2020
- */
 public class Euler01 {
 
     public static void main(String[] args) 
     {
-        long startTime;
-        long endTime;
-        long duration;
-        // start timer
-        startTime = System.nanoTime();
         
-        double sumOfThrees = 0;
-        double sumOfFives = 0;
-        double sumOfFifteens = 0;
-        double answer;
+        int sumOfThrees = 0;
+        int sumOfFives = 0;
+        int sumOfFifteens = 0;
+        int finalAnswer;
+
+        long tic = System.nanoTime();
         
         for (int i = 0; i < 1000; i += 3)
         {
@@ -37,13 +31,12 @@ public class Euler01 {
             sumOfFifteens += k;
         }
 
-        answer = (sumOfThrees + sumOfFives) - sumOfFifteens;
+        finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens;
         
-        // stop timer
-        endTime = System.nanoTime();
-        duration = (endTime - startTime);
+        long toc = System.nanoTime();
+        long timeElapsed = (toc - tic);
         
-        System.out.println("Answer: " + answer);
-        System.out.println("Took " + duration + " nanoseconds");
+        System.out.println("Answer:\t" + finalAnswer);
+        System.out.println("Took:\t" + timeElapsed + " ns");
     }
 }
