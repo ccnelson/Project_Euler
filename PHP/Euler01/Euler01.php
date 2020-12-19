@@ -16,15 +16,15 @@ $finalAnswer = 0;
 
 $tic = microtime(true);
 
-for ($x = 3; $x < 1000; $x+=3) 
+for ($x = 3; $x < 1000; $x += 3) 
 {
     $sumOfThrees += $x;
 }
-for ($y = 5; $y < 1000; $y+=5) 
+for ($y = 5; $y < 1000; $y += 5) 
 {
     $sumfFives += $y;
 }
-for ($z = 15; $z < 1000; $z+=15) 
+for ($z = 15; $z < 1000; $z += 15) 
 {
     $sumOfFifteens += $z;
 }
@@ -32,7 +32,7 @@ for ($z = 15; $z < 1000; $z+=15)
 $finalAnswer = ($sumOfThrees + $sumfFives) - $sumOfFifteens;
 
 $toc = microtime(true);
-$rawDuration = ($toc - $tic)/60;
+$rawDuration = ($toc - $tic) / 60;
 $timeElapsed = number_format((float) $rawDuration, 10);
 
 echo "Answer:\t".$finalAnswer."\nTook:\t".$timeElapsed;
