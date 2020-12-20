@@ -29,7 +29,7 @@ for (k in seq(from = 15, to = 999, by = 15))
 finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens
 
 toc <- Sys.time()
-timeElapsed = (toc - tic)
+timeElapsed = toc - tic
 
 cat("Answer:", finalAnswer, "\n")
 print(timeElapsed)
