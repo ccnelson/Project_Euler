@@ -1,17 +1,20 @@
-#If we list all the natural numbers below 10 that
-#are multiples of 3 or 5, we get 3, 5, 6 and 9.
-#The sum of these multiples is 23.
-#Find the sum of all the multiples of 3 or 5 below 1000.
+# C NELSON 2020
+# If we list all the natural numbers below 10 that
+# are multiples of 3 or 5, we get 3, 5, 6 and 9.
+# The sum of these multiples is 23.
+# Find the sum of all the multiples of 3 or 5 below 1000.
 # (Answer = 233168)
 
-# this version uses conditional logical OR operator with remainder operator
-# ~ 410000 nanoseconds
+# solution uses conditional logical OR with remainder operator
 
 import time
-start = time.perf_counter_ns()
 
-print(sum(x for x in range(1000) if (x % 3 == 0 or x % 5 == 0)))
+tic = time.perf_counter()
 
-duration = time.perf_counter_ns() - start
+finalAnswer = sum(x for x in range(1000) if (x % 3 == 0 or x % 5 == 0))
 
-print("Took: %s nanoseconds" % (duration))
+toc = time.perf_counter()
+timeElapsed = toc - tic
+
+print("Answer:\t%s" % (finalAnswer))
+print("Took:\t%f" % (timeElapsed))
