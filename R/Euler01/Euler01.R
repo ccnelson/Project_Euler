@@ -13,15 +13,15 @@ finalAnswer = 0
 
 tic <- Sys.time()
 
-for (i in seq(from = 0, to = 999, by = 3))
+for (i in seq(from = 3, to = 999, by = 3))
 {
     sumOfThrees = sumOfThrees + i
 }
-for (j in seq(from = 0, to = 999, by = 5))
+for (j in seq(from = 5, to = 999, by = 5))
 {
     sumOfFives = sumOfFives + j
 }
-for (k in seq(from = 0, to = 999, by = 15))
+for (k in seq(from = 15, to = 999, by = 15))
 {
     sumOfFifteens = sumOfFifteens + k
 }
