@@ -20,12 +20,12 @@ finalAnswer = 0
 tic = Time.now
 
 while n3 < 4000000 do
-	n3 = n1 + n2
-	if n3 & 1 != 1
-		finalAnswer += n3
-	end
-	n1 = n2
-	n2 = n3
+    n3 = n1 + n2
+    if n3 & 1 != 1
+        finalAnswer += n3
+    end
+    n1 = n2
+    n2 = n3
 end
 
 toc = Time.now
