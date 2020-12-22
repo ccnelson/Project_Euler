@@ -14,7 +14,7 @@ object Euler01
         var sumOfFives = 0
         var sumOfFifteens = 0
 
-        val tic = System.nanoTime
+        val tic = System.currentTimeMillis
 
         for (i <- 3 to 999 by 3) 
         {
@@ -30,10 +30,10 @@ object Euler01
         }
         val finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens
 
-        val toc = System.nanoTime
-        val timeElapsed = (toc - tic) / 1e9d
+        val toc = System.currentTimeMillis
+        val timeElapsed = toc - tic
 
         println(s"Answer:\t$finalAnswer")
-        println(s"Took:\t$timeElapsed ns")
+        println(s"Took:\t$timeElapsed ms")
     }
 }
