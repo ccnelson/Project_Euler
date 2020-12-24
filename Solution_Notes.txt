@@ -10,6 +10,11 @@ The chosen solution requires 0 division / modulo operations (which are computati
 ( 999 / 3 ) + ( 999 / 5 ) + ( 999 / 15 ) + ( 2 ) addition and subtration operations. 
 333 + 199 + 66 + 2 = 600.
 
+New solution has arithmetic progression formula based on n(n+1)/2 multiplied by increment.
+This formula reduces execution time so much that for c++ the timer had to be changed from microseconds to nanoseconds for 
+comparison. This formula was tested for positive and negative values and appears to hold up, but I remain tentative 
+as have only just started studying mathmatical sequences and series.
+
 Problem 02:
 An obvious choice for Fibonacci sequence generation is recursion. 
 However, this becomes inefficient as numbers grow exponentially and recursion levels grow deeper.
