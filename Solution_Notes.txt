@@ -22,3 +22,25 @@ Instead a simple iterative loop proves more effective.
 Again, as modulo is computationally expensive, an alternative is sought.
 Most languages allow for bitwise AND tests, which examine a values least significant bit to determine its parity.
 
+Problem 03:
+By dividing out all other factors we are left with the largest prime factor.
+By treating even numbers seperately we can avoid testing them again.
+By setting a square root boundary we can efficiently deal with prime numbers who
+will have no other divisors.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
