@@ -8,7 +8,8 @@ values do not exceed four million,
  find the sum of the even-valued terms.
 (Answer = 4613732) */
 
-// uses bitwise AND to test least significant bit
+// even fibonacci numbers occur following two odd fibonacci numbers. 
+// solution uses a counter to add every third number to total.
 
 #include <iostream>
 #include <chrono>
@@ -17,19 +18,22 @@ using namespace std::chrono;
 
 int main()
 {
-    int n1 = 1;
-    int n2 = 0;
+    int n1 = 0;
+    int n2 = 1;
     int n3 = 0;
     int finalAnswer = 0;
+    int counter = 1;
     
     auto tic = high_resolution_clock::now();
     
     while (n3 < 4000000)
     {
         n3 = n1 + n2;
-        if ((n3 & 1) != 1)
+        counter += 1;
+        if (counter == 3)
         {
             finalAnswer += n3;
+            counter = 0;
         }
         n1 = n2;
         n2 = n3;

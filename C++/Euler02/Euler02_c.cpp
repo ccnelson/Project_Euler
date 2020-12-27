@@ -8,31 +8,30 @@ values do not exceed four million,
  find the sum of the even-valued terms.
 (Answer = 4613732) */
 
-// uses bitwise AND to test least significant bit
+// phi (golden ratio) is ratio between fibonacci terms.
+// as even fibonacci terms occur following two odd terms, 
+// use phi ^ 3 as ratio between consecutive even terms
+
 
 #include <iostream>
 #include <chrono>
+#include <math.h>
 
 using namespace std::chrono; 
 
 int main()
 {
-    int n1 = 1;
-    int n2 = 0;
-    int n3 = 0;
-    int finalAnswer = 0;
-    
+    int n = 2;                  // first even fibonacci term
+    int finalAnswer = 2;
+
     auto tic = high_resolution_clock::now();
-    
-    while (n3 < 4000000)
+
+    double phi3 = pow(1.61803398875, 3);
+
+    while (n < 1000000)         // as ((phi ^ 3) * 1000000) > 4000000) 
     {
-        n3 = n1 + n2;
-        if ((n3 & 1) != 1)
-        {
-            finalAnswer += n3;
-        }
-        n1 = n2;
-        n2 = n3;
+        n = round(n * phi3);
+        finalAnswer = finalAnswer + n;
     }
     
     auto toc = high_resolution_clock::now();
