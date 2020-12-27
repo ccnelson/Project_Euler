@@ -35,14 +35,14 @@ int main()
 
     while (n > 1 && div < nsqrt)    // stops at square root of n in case n is prime
     {
-    	if (n % div == 0)           // if number is a divisor
-    	{
-    		n = n / div;            // divide it out
-    	} 
-    	else 
-    	{
-    		div += 2;	            // otherwise iterate though odds
-    	}
+        if (n % div == 0)           // if number is a divisor
+        {
+            n = n / div;            // divide it out
+        } 
+        else 
+        {
+            div += 2;               // otherwise iterate though odds
+        }
     }
     
     finalAnswer = (n != 1) ? n : div;   // if n!=1 no. not divided as is prime, 
