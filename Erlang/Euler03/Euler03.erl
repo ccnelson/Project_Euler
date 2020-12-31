@@ -18,7 +18,7 @@ start() ->
 % divide out all evens
 loop(N, D, Nsqrt, P) when (N rem 2) =:= 0 ->
     NewN = N div 2,
-    if ( NewN == 1 ) ->
+    if ( NewN =:= 1 ) ->
         NewD = 2;
     true ->
         NewD = D
@@ -37,14 +37,14 @@ loop(N, D, Nsqrt, P) when N > 1, D < Nsqrt ->
     loop(NewN, NewD, Nsqrt, P);
 
 % D > Nsqrt indicates number is prime. Flag with P = 1
-loop(N, D, Nsqrt, P) when N > 1, D > Nsqrt, P == 0 ->
+loop(N, D, Nsqrt, P) when N > 1, D > Nsqrt, P =:= 0 ->
     NewP = 1,
     loop(N, D, Nsqrt, NewP);
 
 % set final answer according to P flag
 loop(N, D, Nsqrt, P) when N =:= 1;
                           P =:= 1 ->
-    if N == 1, P == 0 ->
+    if N =:= 1, P =:= 0 ->
         FinalAnswer = D;
     true ->
         FinalAnswer = N
