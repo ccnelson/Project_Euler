@@ -1,48 +1,55 @@
+// C NELSON 2020
 /* The prime factors of 13195 are 5, 7, 13 and 29.
-What is the largest prime factor of the number 600851475143
+What is the largest prime div of the number 600851475143
 (Answer = 6857) */
 
-// Divide out all factors until left with highest prime factor
-// ~ 41000 nanoseconds
+// solution divides out all factors until largest prime factor remains
 
-/**
- * @author ccnelson 2020
- */
 public class Euler03 
 {
     public static void main(String[] args) 
     {
-        long startTime;
-        long endTime;
-        long duration;
-        // start timer
-        startTime = System.nanoTime();        
-        
+
+        long finalAnswer = 0;
         long n = 600851475143L;
-        int factor = 3;
-        double maxfactor = java.lang.Math.sqrt(n);
-        long answer = 0;
-        
-        while (n > 1 && factor <= maxfactor)
+        int div = 3;
+
+        long tic = System.nanoTime();
+
+        double nsqrt = java.lang.Math.sqrt(n);
+
+        // if n is even divide out all 2s
+        if ((n & 1) != 1)
         {
-            if (n % factor == 0)
+            while ((n & 1) != 1)
             {
-                n = n / factor;
-                while (n % factor == 0) 
-                { 
-                    n = n / factor; 
-                }
-                maxfactor = java.lang.Math.sqrt(n);
+                n = n / 2;
             }
-            factor += 2;
+            if (n == 1)
+            {
+                div = 2;
+            }
         }
-        answer = n;
         
-        // stop timer
-        endTime = System.nanoTime();
-        duration = (endTime - startTime);
+        // divide out all odds, stop if n is prime
+        while (n > 1 && div <= nsqrt)
+        {
+            if (n % div == 0)
+            {
+                n = n / div;
+            }
+            else
+            {
+                div += 2;
+            }
+        }
+
+        finalAnswer = (n != 1) ? n : div;
+
+        long toc = System.nanoTime();
+        long timeElapsed = (toc - tic);
         
-        System.out.println("Answer: " + answer);
-        System.out.println("Took " + duration + " nanoseconds");
+        System.out.println("Answer:\t" + finalAnswer);
+        System.out.println("Took:\t" + timeElapsed + " ns");
     }
 }
