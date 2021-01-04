@@ -4,31 +4,37 @@ we get 3, 5, 6 and 9. The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000. 
 (Answer = 233168) */
 
-// solution uses arithmetic series formula with inclusion-exclusion principle
+// solution uses inclusion-exclusion principle
 
 #include <stdio.h>
 #include <time.h>
-#include <math.h>
-
-// arithmetic series formula : Sn = n/2(2a+(n-1)d)
-// a = 1st term, d = common difference, n = no. of terms
-int seqSum(int a, int d, double n)
-{
-    return (n / 2) * (2 * a + (n - 1) * d);
-}
-
 
 int main()
 {
+    int sumOfThrees = 0;
+    int sumOfFives = 0;
+    int sumOfFifteens = 0;
     int finalAnswer = 0;
     
     clock_t tic, toc;
     double timeElapsed;
     
     tic = clock();
-
-    finalAnswer = (seqSum(3, 3, floor(999/3)) + seqSum(5, 5, floor(999/5)) - seqSum(15, 15, floor(999/15)));
-
+    
+    for (int i = 3; i < 1000; i += 3)
+    {
+        sumOfThrees += i;
+    }
+    for (int j = 5; j < 1000; j += 5)
+    {
+        sumOfFives += j;
+    }
+    for (int k = 15; k < 1000; k += 15)
+    {
+        sumOfFifteens += k;
+    }
+    finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens;
+    
     toc = clock();
     timeElapsed = (double)(toc - tic) / CLOCKS_PER_SEC;
     
