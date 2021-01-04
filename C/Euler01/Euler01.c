@@ -17,7 +17,6 @@ int seqSum(int a, int d, double n)
     return (n / 2) * (2 * a + (n - 1) * d);
 }
 
-
 int main()
 {
     int finalAnswer = 0;
