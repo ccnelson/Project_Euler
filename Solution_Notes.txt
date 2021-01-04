@@ -2,12 +2,9 @@
 
 
 Problem 01:
-
 Inclusion-exclusion principle prevents solution having to test for all 
 divisable numbers. Arithmetic formula ( Sn = n/2(2a+(n-1)d) ) used in 
-conjunction further speeds up solution, except in some cases (C#) where it 
-performs slower, with "conditional logical OR with remainder operator" 
-solution appearing to be faster. 
+conjunction further speeds up solution, except in some outlier cases (C#).
 
 Problem 02:
 An obvious choice for Fibonacci sequence generation is recursion. 
