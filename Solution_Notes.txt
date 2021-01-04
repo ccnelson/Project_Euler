@@ -2,31 +2,24 @@
 
 
 Problem 01:
-Utilisation of inclusion-exclusion principle allows us to avoid looping through and testing every value at least once.
-If we test every value from 1 to 999, 999/3 of these will require a single test (using a conditional logical OR operator), 
-with the reainder requiring two: 
-333 + ( 666 * 2 ) = 1665 division / modulo operations performed. 
-The chosen solution requires 0 division / modulo operations (which are computationally expensive) - and instead performs: 
-( 999 / 3 ) + ( 999 / 5 ) + ( 999 / 15 ) + ( 2 ) addition and subtration operations. 
-333 + 199 + 66 + 2 = 600.
 
-New solution has arithmetic progression formula based on n(n+1)/2 multiplied by increment.
-This formula reduces execution time so much that for c++ the timer had to be changed from microseconds to nanoseconds for 
-comparison. This formula was tested for positive and negative values and appears to hold up, but I remain tentative 
-as have only just started studying mathmatical sequences and series.
+Inclusion-exclusion principle prevents solution having to test for all 
+divisable numbers. Arithmetic formula ( Sn = n/2(2a+(n-1)d) ) alongside this further speeds up solution, except in some cases (C#) where it 
+comes out slowest, and even conditional logical OR with remainder operator 
+is faster. 
 
 Problem 02:
 An obvious choice for Fibonacci sequence generation is recursion. 
 However, this becomes inefficient as numbers grow exponentially and recursion levels grow deeper.
 Instead a simple iterative loop proves more effective.
-Again, as modulo is computationally expensive, an alternative is sought.
+As modulo is computationally expensive, an alternative is sought.
 Most languages allow for bitwise AND tests, which examine a values least significant bit to determine its parity.
 
 Problem 03:
 By dividing out all other factors we are left with the largest prime factor.
 By treating even numbers seperately we can avoid testing them again.
-By setting a square root boundary we can efficiently deal with prime numbers who
-will have no other divisors.
+By setting a square root boundary we can efficiently deal with prime 
+ numbers which will have no other divisors.
 
 
 
