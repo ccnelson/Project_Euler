@@ -4,26 +4,21 @@
 % Find the sum of all the multiples of 3 or 5 below 1000. 
 % (Answer = 233168)
 
-% solution uses inclusion-exclusion principle
+% solution uses arithmetic series formula with inclusion-exclusion principle
 
 -module(euler01).
--import(lists,[sum/1]).
--export([start/0]).
+-export([start/0, seqsum/3]).
+
+% arithmetic series formula : Sn = n/2(2a+(n-1)d)
+% A = 1st term, D = common difference, N = no. of terms
+seqsum(A, D, N) ->
+    (N / 2) * (2 * A + (N - 1) * D).
 
 start() ->
-    ListOfThrees = lists:seq(3, 999, 3),
-    SumOfThrees = sum(ListOfThrees),
-
-    ListOfFives = lists:seq(5, 999, 5),
-    SumOfFives = sum(ListOfFives),
-
-    ListOfFifteens = lists:seq(15, 999, 15),
-    SumOfFifteens = sum(ListOfFifteens),
+    SumOfThrees = seqsum(3, 3, (999 div 3)),
+    SumOfFives = seqsum(5, 5, (999 div 5)),
+    SumOfFifteens = seqsum(15, 15, (999 div 15)),
 
     FinalAnswer = (SumOfThrees + SumOfFives) - SumOfFifteens,
 
     io:fwrite("Answer: ~w~n",[FinalAnswer]).
-
-    
-
-    
