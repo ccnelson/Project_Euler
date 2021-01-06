@@ -14,13 +14,13 @@
 ; arithmetic series formula : Sn = n/2(2a+(n-1)d)
 ; a = 1st term, d = common difference, n = no. of terms
 (defun Seqsum(a d n)
-	(* (/ n 2) (+ (* a 2) (* (- n 1) d)))
-)	
+    (* (/ n 2) (+ (* a 2) (* (- n 1) d)))
+)   
 
 (defun Euler01()
-	(setf sumOfThrees(Seqsum 3 3 (floor 999 3)))
-	(setf sumOfFives(Seqsum 5 5 (floor 999 5)))
-	(setf sumOfFifteens(Seqsum 15 15 (floor 999 15)))
+    (setf sumOfThrees(Seqsum 3 3 (floor 999 3)))
+    (setf sumOfFives(Seqsum 5 5 (floor 999 5)))
+    (setf sumOfFifteens(Seqsum 15 15 (floor 999 15)))
     (setf finalAnswer(- (+ sumOfThrees sumOfFives) sumOfFifteens))
 )
 
