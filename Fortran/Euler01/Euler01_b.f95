@@ -4,9 +4,9 @@
 ! Find the sum of all the multiples of 3 or 5 below 1000. 
 ! (Answer = 233168)
 
-! solution uses arithmetic series formula with inclusion-exclusion principle
+! solution uses inclusion-exclusion principle
 
-program Euler01
+program Euler01b
 
     integer :: sumOfThrees = 0
     integer :: sumOfFives = 0
@@ -16,10 +16,21 @@ program Euler01
     real :: tic, toc
     call cpu_time(tic)
 
-    sumOfThrees = seqsum(3, 3, real(999/3))
-    sumOfFives = seqsum(5, 5, real(999/5))
-    sumOfFifteens = seqsum(15, 15, real(999/15))
+    do i=3, 999, 3
+        sumOfThrees = sumOfThrees + i
+    cycle    
+    enddo
 
+    do j=5, 999, 5
+        sumOfFives = sumOfFives + j
+    cycle    
+    enddo
+
+    do k=15, 999, 15
+        sumOfFifteens = sumOfFifteens + k
+    cycle    
+    enddo
+    
     finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens
 
     call cpu_time(toc)
@@ -27,16 +38,4 @@ program Euler01
     print *, "Answer:", finalAnswer
     print *, "Took:     ", toc - tic, "seconds"
 
-end program Euler01
-
-! arithmetic series formula : Sn = n/2(2a+(n-1)d)
-! a = 1st term, d = common difference, n = no. of terms
-function seqsum(a, d, n)
-    
-    integer :: a
-    integer :: d
-    real :: n
-
-    seqsum = (n / 2) * (2 * a + (n - 1) * d)
-
-end function seqsum
+end program Euler01b
