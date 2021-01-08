@@ -1,12 +1,12 @@
-// C NELSON 2021
+// C NELSON 2020
 /* If we list all the natural numbers below 10 that are multiples of 3 or 5, 
 we get 3, 5, 6 and 9. The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000. 
 (finalAnswer = 233168) */
 
-// solution uses arithmetic series formula with inclusion-exclusion principle
+// solution uses inclusion-exclusion principle
 
-function Euler01()
+function Euler01_c()
 {
     
     let sumOfThrees = 0;
@@ -14,21 +14,23 @@ function Euler01()
     let sumOfFifteens = 0;
     let finalAnswer = 0;
 
-    sumOfThrees = SeqSum(3, 3, Math.floor(999/3));
-    sumOfFives = SeqSum(5, 5, Math.floor(999/5));
-    sumOfFifteens = SeqSum(15, 15, Math.floor(999/15));
+    for (i = 3; i < 1000; i+=3)
+    {
+        sumOfThrees += i;
+    }
+    for (j = 5; j < 1000; j+=5)
+    {
+        sumOfFives += j;
+    }
+    for (k =15; k < 1000; k+=15)
+    {
+        sumOfFifteens += k;
+    }
 
     finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens;
     console.log("Answer:", finalAnswer);
 }
 
-// arithmetic series formula : Sn = n/2(2a+(n-1)d)
-// a = 1st term, d = common difference, n = no. of terms
-function SeqSum(a, d, n)
-{
-    return (n / 2) * (2 * a + (n - 1) * d);
-}
-
 console.time('Took');
-Euler01();
+Euler01_c();
 console.timeEnd('Took');

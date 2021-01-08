@@ -6,13 +6,12 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 // solution uses conditional logical OR with modulo operator
 
-
-function Euler01_b(n)
+function Euler01_b()
 {
     
     let finalAnswer = 0;
 
-    for (i = 1; i < n; i++)
+    for (i = 1; i < 1000; i++)
     {
         if ((i % 3 == 0) || (i % 5 == 0))
         {
@@ -24,5 +23,5 @@ function Euler01_b(n)
 }
 
 console.time('Took');
-Euler01_b(1000);
+Euler01_b();
 console.timeEnd('Took');
