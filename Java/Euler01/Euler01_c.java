@@ -4,35 +4,25 @@ we get 3, 5, 6 and 9. The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000. 
 (Answer = 233168) */
 
-// solution uses inclusion-exclusion principle
+// solution uses conditional logical OR with remainder operator
 
-public class Euler01_b {
+public class Euler01_c {
 
     public static void main(String[] args) 
     {
         
-        int sumOfThrees = 0;
-        int sumOfFives = 0;
-        int sumOfFifteens = 0;
-        int finalAnswer;
+        int finalAnswer = 0;
 
         long tic = System.nanoTime();
-        
-        for (int i = 0; i < 1000; i += 3)
+                
+        for (int i = 1; i < 1000; i++)
         {
-            sumOfThrees += i;
-        }
-        for (int j = 0; j < 1000; j += 5)
-        {
-            sumOfFives += j;
-        }
-        for (int k = 0; k < 1000; k += 15)
-        {
-            sumOfFifteens += k;
+            if ((i % 3 == 0) || (i % 5 == 0))
+            {
+                finalAnswer += i;
+            }
         }
 
-        finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens;
-        
         long toc = System.nanoTime();
         long timeElapsed = (toc - tic);
         
