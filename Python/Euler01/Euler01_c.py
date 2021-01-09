@@ -5,26 +5,13 @@
  Find the sum of all the multiples of 3 or 5 below 1000.
  (Answer = 233168) """
 
-# solution uses inclusion-exclusion principle
+# solution uses conditional logical OR with remainder operator
 
 import time
 
-sumOfThrees = 0
-sumOfFives = 0
-sumOfFifteens = 0
-
 tic = time.perf_counter()
 
-for i in range(3, 1000, 3):
-    sumOfThrees += i
-
-for j in range(5, 1000, 5):
-    sumOfFives += j
-
-for k in range(15, 1000, 15):
-    sumOfFifteens += k
-
-finalAnswer = (sumOfThrees + sumOfFives) - sumOfFifteens
+finalAnswer = sum(x for x in range(1000) if (x % 3 == 0 or x % 5 == 0))
 
 toc = time.perf_counter()
 timeElapsed = toc - tic
