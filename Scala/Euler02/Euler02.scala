@@ -19,7 +19,7 @@ object Euler02
         var n3 = 0
         var finalAnswer = 0
 
-        val tic = System.currentTimeMillis
+        val tic = System.nanoTime
 
         while (n3 < 4000000)
         {
@@ -32,10 +32,10 @@ object Euler02
             n2 = n3
         }
         
-        val toc = System.currentTimeMillis
+        val toc = System.nanoTime
         val timeElapsed = toc - tic
 
         println(s"Answer:\t$finalAnswer")
-        println(s"Took:\t$timeElapsed ms")
+        println(s"Took:\t$timeElapsed ns")
     }
 }
