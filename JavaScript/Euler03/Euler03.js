@@ -1,30 +1,45 @@
+// C NELSON 2021
 /* The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143
 (Answer = 6857) */
 
-// Divide out all factors until highest prime factor remains
-// ~ 9.6ms
+// solution divides out all factors until largest prime factor remains
 
 function Euler03()
 {
-  let n = 600851475143;
-  let factor = 3;
-  let maxfactor = Math.sqrt(n);
+    
+    let finalAnswer = 0;
+    let n = 600851475143;
+    let div = 3;
+    let nsqrt = Math.sqrt(n);
 
-  while (n > 1 && factor <= maxfactor)
-  {
-    if (n % factor == 0)
+    if ((n & 1) != 1)
     {
-      n = n / factor;
-      while (n % factor == 0)
-      {
-        n = n / factor;
-      }
-      maxfactor = Math.sqrt(n);
+        while ((n & 1) != 1)
+        {
+            n = n / 2;
+        }
+        if (n == 1)
+        {
+            div = 2;
+        }
     }
-    factor += 2;
-  }
-  console.log(n);
+
+    while (n > 1 && div < nsqrt)
+    {
+        if (n % div == 0)
+        {
+            n = n / div;
+        }
+        else
+        {
+            div += 2;
+        }
+    }
+
+    finalAnswer = (n != 1) ? n : div;
+    console.log("Answer: ", finalAnswer);
+
 }
 
 console.time('Euler03');
